@@ -1,0 +1,18 @@
+/* ── Pulsing Dot ── */
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.pulse-dot {
+    animation: pulse-dot 2s infinite;
+}

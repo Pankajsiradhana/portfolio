@@ -1,0 +1,206 @@
+/* ── Scroll Reveal ── */
+.sr-hidden {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.sr-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Pill Tag ── */
+.pill-tag {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(10, 46, 26, 0.25);
+    color: rgba(10, 46, 26, 0.55);
+    display: inline-block;
+}
+
+/* ── Accordion ── */
+.accordion-row {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(10, 46, 26, 0.12);
+    overflow: hidden;
+    transition: background 0.3s ease;
+}
+
+.accordion-row:hover,
+.accordion-row.expanded {
+    background: rgba(10, 46, 26, 0.03);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-row.expanded .accordion-content {
+    max-height: 500px;
+}
+
+.accordion-inner {
+    opacity: 0;
+    transition: opacity 0.3s ease 0.15s;
+}
+
+.accordion-row.expanded .accordion-inner {
+    opacity: 1;
+}
+
+.accordion-icon {
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid rgba(10, 46, 26, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: rgba(10, 46, 26, 0.5);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.accordion-row.expanded .accordion-icon {
+    transform: rotate(45deg);
+}
+
+/* ── Contact Row ── */
+.contact-row {
+    border: 1px solid rgba(245, 240, 232, 0.12);
+    border-radius: 12px;
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.contact-row:hover {
+    transform: translateY(-2px);
+    border-color: rgba(252, 238, 10, 0.3);
+}
+
+/* ── Skill Tags ── */
+.skill-tag {
+    padding: 7px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.skill-tag-pm {
+    border: 1px solid rgba(252, 238, 10, 0.4);
+    color: var(--green);
+}
+
+.skill-tag-pm:hover {
+    background: var(--yellow);
+    border-color: var(--yellow);
+}
+
+.skill-tag-other {
+    border: 1px solid rgba(10, 46, 26, 0.2);
+    color: rgba(10, 46, 26, 0.7);
+}
+
+.skill-tag-other:hover {
+    background: rgba(10, 46, 26, 0.08);
+}
+
+/* ── Grid Overlay for Placeholders ── */
+.grid-overlay {
+    background-image:
+        linear-gradient(rgba(252, 238, 10, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(252, 238, 10, 0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* ── Image Hover Scale ── */
+.img-hover-scale {
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.img-hover-scale:hover {
+    transform: scale(1.03);
+}
+
+/* ── Radar Chart Custom Styles ── */
+.radar-card {
+    background: var(--green);
+    border-radius: 20px;
+    padding: 32px 28px;
+    border: 1px solid rgba(245, 240, 232, 0.08);
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.radar-card:hover {
+    border-color: rgba(252, 238, 10, 0.2);
+    transform: translateY(-4px);
+}
+
+.radar-axis-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.2s ease;
+    pointer-events: bounding-box;
+}
+
+.radar-axis-label.hovered,
+.radar-axis-label:hover {
+    color: var(--yellow);
+    cursor: none;
+}
+
+.radar-node {
+    transition: filter 0.3s ease;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+.radar-pill {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(245, 240, 232, 0.12);
+    color: rgba(245, 240, 232, 0.45);
+    transition: border-color 0.15s ease, color 0.15s ease;
+    display: inline-block;
+}
+
+.radar-pill:hover {
+    border-color: rgba(252, 238, 10, 0.3);
+    color: rgba(252, 238, 10, 0.8);
+}
+
+.radar-shape {
+    transition: transform 0.25s ease;
+}
+
+.radar-card:hover .radar-shape {
+    transform: scale(1.04);
+}
+
+.radar-grid-ring {
+    transition: stroke 0.25s ease;
+}
+
+.radar-card:hover .radar-grid-ring {
+    stroke: rgba(252, 238, 10, 0.18);
+}

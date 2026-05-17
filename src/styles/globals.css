@@ -1,0 +1,368 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── FONTS ─────────────── */
+.font-display {
+    font-family: 'Bebas Neue', cursive;
+}
+
+.font-heading {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+}
+
+.font-body {
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── CSS VARIABLES ─────── */
+:root {
+    --green: #0A2E1A;
+    --green-mid: #183324;
+    --green-card: #0d2419;
+    --beige: #F5F0E8;
+    --beige-dark: #EDE7DB;
+    --yellow: #FCEE0A;
+}
+
+/* ─── RESET ─────────────── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ─── BODY & BASE ───────── */
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--beige);
+    color: var(--green);
+    cursor: none;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+    cursor: none;
+}
+
+/* ─── CURSOR ────────────── */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    background: var(--yellow);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    mix-blend-mode: normal;
+    border: none;
+    transition: width 0.15s ease, height 0.15s ease, transform 0.15s ease, background 0.15s ease, border 0.15s ease;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-cursor.light-bg {
+    border: 1.5px solid rgba(10, 46, 26, 0.3);
+}
+
+.custom-cursor.expanded {
+    width: 44px;
+    height: 44px;
+}
+
+.custom-cursor .cursor-arrow {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    color: var(--green);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.custom-cursor.expanded .cursor-arrow {
+    opacity: 1;
+}
+
+/* ─── LAYOUT UTILITIES ──── */
+.container-main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 52px;
+}
+
+.section-padding {
+    padding: 120px 0;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--beige);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(10, 46, 26, 0.2);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(10, 46, 26, 0.4);
+}
+
+@media (max-width: 768px) {
+    .container-main {
+        padding: 0 20px;
+    }
+
+    .section-padding {
+        padding: 80px 0;
+    }
+}
+
+/* ─── TYPOGRAPHY ────────── */
+.eyebrow {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.5;
+}
+
+.eyebrow-yellow {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--yellow);
+}
+
+/* ─── BUTTONS ───────────── */
+.btn-primary {
+    background: var(--yellow);
+    color: var(--green);
+    padding: 12px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(252, 238, 10, 0.3);
+}
+
+.btn-outlined {
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1px solid rgba(245, 240, 232, 0.25);
+    color: rgba(245, 240, 232, 0.7);
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    background: transparent;
+}
+
+.btn-outlined:hover {
+    transform: scale(1.03);
+    border-color: rgba(252, 238, 10, 0.4);
+}
+
+.btn-outlined-dark {
+    padding: 8px 20px;
+    border-radius: 100px;
+    background: var(--green);
+    color: var(--beige);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-outlined-dark:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(10, 46, 26, 0.2);
+}
+
+/* ─── CARDS ─────────────── */
+.card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ═══════════════════════════════════════════ */
+
+/* ── Large Monitors (1440px+) ── */
+@media (min-width: 1440px) {
+    .container-main {
+        max-width: 1400px;
+        padding: 0 64px;
+    }
+
+    .section-padding {
+        padding: 140px 0;
+    }
+}
+
+/* ── Tablets & Small Laptops (769px – 1024px) ── */
+@media (max-width: 1024px) {
+    .container-main {
+        padding: 0 36px;
+    }
+
+    .section-padding {
+        padding: 100px 0;
+    }
+
+    .btn-primary {
+        padding: 10px 24px;
+        font-size: 13px;
+    }
+
+    .btn-outlined {
+        padding: 7px 14px;
+        font-size: 10px;
+    }
+}
+
+/* ── Tablets (≤768px) ── */
+@media (max-width: 768px) {
+    .container-main {
+        padding: 0 20px;
+    }
+
+    .section-padding {
+        padding: 80px 0;
+    }
+
+    /* Restore native cursor on touch devices */
+    body,
+    a,
+    button,
+    input,
+    textarea,
+    select {
+        cursor: auto !important;
+    }
+
+    .custom-cursor {
+        display: none !important;
+    }
+
+    /* Radar chart grid */
+    .radar-grid-layout {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 20px !important;
+    }
+
+    .radar-card {
+        padding: 24px 20px;
+    }
+
+    /* Accordion tweaks */
+    .accordion-header {
+        grid-template-columns: 60px 1fr auto !important;
+        gap: 12px !important;
+    }
+
+    /* Footer */
+    footer {
+        padding: 16px 20px !important;
+        flex-direction: column !important;
+        text-align: center;
+        gap: 4px !important;
+    }
+}
+
+/* ── Mobile Phones (≤480px) ── */
+@media (max-width: 480px) {
+    .container-main {
+        padding: 0 16px;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+
+    .btn-outlined,
+    .btn-outlined-dark {
+        padding: 7px 14px;
+        font-size: 10px;
+    }
+
+    .pill-tag {
+        font-size: 8px;
+        padding: 3px 8px;
+    }
+
+    /* Radar chart grid — single column on phones */
+    .radar-grid-layout {
+        grid-template-columns: 1fr !important;
+    }
+
+    .radar-card {
+        padding: 20px 16px;
+    }
+
+    .radar-axis-label {
+        font-size: 7px !important;
+    }
+
+    /* Contact rows tighter */
+    .contact-row {
+        padding: 10px 14px;
+    }
+
+    /* Accordion */
+    .accordion-header {
+        grid-template-columns: 40px 1fr auto !important;
+        gap: 8px !important;
+    }
+}
+
+/* ── Small Phones (≤360px) ── */
+@media (max-width: 360px) {
+    .container-main {
+        padding: 0 12px;
+    }
+}
