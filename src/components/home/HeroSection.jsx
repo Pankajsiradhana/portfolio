@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { heroWords, heroPills } from '../../data/skills';
-import heroPhoto from '../../assets/hero.jpg';
+import heroPhoto from '../../assets/hero.svg';
 
 // ─── TYPES / PROPS ───────────────────────
 
