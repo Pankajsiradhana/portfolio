@@ -1,4 +1,5 @@
 // ─── IMPORTS ────────────────────────────
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { heroWords, heroPills } from '../../data/skills';
@@ -8,6 +9,34 @@ import heroPhoto from '../../assets/hero.svg';
 
 // ─── COMPONENT ───────────────────────────
 export default function HeroSection() {
+    const [tilt, setTilt] = useState({ x: 0, y: 0, tx: 0, ty: 0, active: false });
+    const cardRef = useRef(null);
+
+    const handleMouseMove = (e) => {
+        if (!cardRef.current) return;
+        const rect = cardRef.current.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+
+        // Relative coordinates from center of the card
+        const mouseX = e.clientX - rect.left - width / 2;
+        const mouseY = e.clientY - rect.top - height / 2;
+
+        // Rotation angles (max 8 degrees tilt)
+        const rX = -(mouseY / (height / 2)) * 8;
+        const rY = (mouseX / (width / 2)) * 8;
+
+        // Slight shift/translation offsets (max 12px glide)
+        const tX = (mouseX / (width / 2)) * 12;
+        const tY = (mouseY / (height / 2)) * 12;
+
+        setTilt({ x: rX, y: rY, tx: tX, ty: tY, active: true });
+    };
+
+    const handleMouseLeave = () => {
+        setTilt({ x: 0, y: 0, tx: 0, ty: 0, active: false });
+    };
+
     return (
         <section style={{ background: '#F5F0E8', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
             <div className="container-main" style={{ paddingTop: 140, paddingBottom: 80 }}>
@@ -113,97 +142,87 @@ export default function HeroSection() {
                         </div>
                     </div>
 
-                    {/* Right Column — Hero Image Card */}
-                    <div className="hero-image-col">
-                        <div
+                    {/* Right Column — Morphing Blob Hero Image with Mouse Parallax */}
+                    <div className="hero-image-col" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div 
+                            className="morphing-blob-card"
+                            ref={cardRef}
+                            onMouseMove={handleMouseMove}
+                            onMouseLeave={handleMouseLeave}
                             style={{
-                                borderRadius: 22,
-                                overflow: 'hidden',
-                                width: '100%',
-                                aspectRatio: '3/4',
-                                background: '#1a1a1a',
-                                position: 'relative',
+                                cursor: 'pointer',
+                                perspective: '1000px',
                             }}
                         >
-                            {/* Actual Photo */}
-                            <img
-                                src={heroPhoto}
-                                alt="Pankaj Siradhana"
+                            {/* Slowly morphing background aura/glow (moves opposite to mouse and brightens slightly on hover) */}
+                            <div 
+                                className="morphing-blob-glow" 
                                 style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'cover',
-                                    objectPosition: 'center top',
-                                    display: 'block',
-                                }}
-                                onError={(e) => {
-                                    e.target.style.display = 'none';
-                                    e.target.nextSibling.style.display = 'none';
-                                    e.target.nextSibling.nextSibling.style.display = 'flex';
+                                    opacity: tilt.active ? 0.25 : 0.15,
+                                    transform: tilt.active
+                                        ? `translateX(${-tilt.tx * 2.5}px) translateY(${-tilt.ty * 2.5}px) scale(1.05)`
+                                        : 'translateX(0px) translateY(0px) scale(1)',
+                                    transition: tilt.active ? 'all 0.15s ease-out' : 'all 0.8s cubic-bezier(0.25, 1, 0.5, 1)',
                                 }}
                             />
-                            {/* Subtle bottom fade only — no green tint */}
-                            <div
-                                style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    background: 'linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(0,0,0,0.45) 100%)',
-                                    pointerEvents: 'none'
-                                }}
-                            />
-                            {/* Fallback SVG */}
-                            <div
-                                style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    display: 'none',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    background: '#1a1a1a'
-                                }}
-                            >
-                                <svg
-                                    width="80"
-                                    height="80"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="rgba(252,238,10,0.35)"
-                                    strokeWidth="1"
-                                >
-                                    <circle cx="12" cy="8" r="4" />
-                                    <path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" />
-                                </svg>
-                                <span
+                            
+                            {/* Main Morphing Image Container (remains perfectly stable) */}
+                            <div className="morphing-blob-container">
+                                <img
+                                    src={heroPhoto}
+                                    alt="Pankaj Siradhana"
+                                    className="morphing-blob-img"
+                                    onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        e.target.nextSibling.style.display = 'flex';
+                                    }}
+                                />
+                                
+                                {/* Fallback SVG in case image doesn't load */}
+                                <div
                                     style={{
-                                        fontSize: 9,
-                                        textTransform: 'uppercase',
-                                        letterSpacing: 2,
-                                        color: 'rgba(252,238,10,0.35)',
-                                        marginTop: 12,
+                                        position: 'absolute',
+                                        inset: 0,
+                                        display: 'none',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        background: '#EDE7DB'
                                     }}
                                 >
-                                    [Save hero.jpg in src/assets]
-                                </span>
+                                    <svg
+                                        width="64"
+                                        height="64"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="rgba(10,46,26,0.25)"
+                                        strokeWidth="1"
+                                    >
+                                        <circle cx="12" cy="8" r="4" />
+                                        <path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" />
+                                    </svg>
+                                </div>
                             </div>
-
-                            {/* Bottom Overlay — stays fixed at bottom */}
+                            
+                            {/* floating PM tag (remains stable) */}
                             <div
                                 style={{
                                     position: 'absolute',
-                                    bottom: 0,
-                                    left: 0,
-                                    right: 0,
-                                    background: 'linear-gradient(transparent, rgba(0,0,0,0.75))',
-                                    padding: 20,
-                                    zIndex: 2,
+                                    bottom: -20,
+                                    right: 20,
+                                    background: '#0A2E1A',
+                                    padding: '12px 24px',
+                                    borderRadius: '100px',
+                                    boxShadow: '0 8px 32px rgba(10, 46, 26, 0.15)',
+                                    zIndex: 10,
+                                    border: '1px solid rgba(245, 240, 232, 0.1)',
                                 }}
                             >
-                                <div style={{ fontSize: 16, fontWeight: 700, color: '#F5F0E8' }}>
+                                <div style={{ fontSize: 13, fontWeight: 700, color: '#F5F0E8', lineHeight: 1.2 }}>
                                     Pankaj Siradhana
                                 </div>
-                                <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 2, color: 'rgba(245,240,232,0.55)' }}>
-                                    Product Manager · Builder
+                                <div style={{ fontSize: 8, textTransform: 'uppercase', letterSpacing: 1.5, color: '#FCEE0A', marginTop: 2, fontWeight: 600 }}>
+                                    Product Manager
                                 </div>
                             </div>
                         </div>

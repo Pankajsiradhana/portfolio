@@ -204,3 +204,74 @@
 .radar-card:hover .radar-grid-ring {
     stroke: rgba(252, 238, 10, 0.18);
 }
+
+/* ── Morphing Blob Effect ── */
+@keyframes morphBlob {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    33% {
+        border-radius: 53% 47% 43% 57% / 47% 53% 47% 53%;
+    }
+    66% {
+        border-radius: 45% 55% 65% 35% / 35% 65% 35% 65%;
+    }
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
+
+@keyframes morphBlobGlow {
+    0% {
+        border-radius: 30% 70% 70% 30% / 50% 60% 40% 50%;
+    }
+    50% {
+        border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+    }
+    100% {
+        border-radius: 30% 70% 70% 30% / 50% 60% 40% 50%;
+    }
+}
+
+.morphing-blob-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.morphing-blob-glow {
+    position: absolute;
+    inset: -10px;
+    background: linear-gradient(135deg, var(--yellow) 0%, #FF8A00 100%);
+    opacity: 0.15;
+    filter: blur(20px);
+    z-index: 0;
+    animation: morphBlobGlow 15s ease-in-out infinite;
+}
+
+.morphing-blob-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    background: #EDE7DB; /* Neutral beige base matching the site */
+    border: 2px solid rgba(10, 46, 26, 0.08);
+    animation: morphBlob 16s ease-in-out infinite;
+    box-shadow: 0 16px 48px rgba(10, 46, 26, 0.12);
+    transition: box-shadow 0.3s ease;
+}
+
+.morphing-blob-container:hover {
+    box-shadow: 0 24px 64px rgba(10, 46, 26, 0.18);
+}
+
+.morphing-blob-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+}
