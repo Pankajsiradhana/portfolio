@@ -20,28 +20,28 @@ export default function MetricsRow({ metrics, columns = 4, gap = 16, styleOverri
                     key={m.value}
                     className="sr-item card-hover"
                     style={{
-                        background: hasDesc ? 'transparent' : 'rgba(245,240,232,0.04)',
-                        border: '1px solid rgba(245,240,232,0.1)',
+                        background: hasDesc ? 'transparent' : 'rgba(245,240,204,0.04)',
+                        border: '1px solid rgba(245,240,204,0.1)',
                         borderRadius: hasDesc ? 16 : 14,
                         padding: hasDesc ? 28 : 24,
                         textAlign: 'center',
                     }}
                 >
-                    <div style={{ fontFamily: '"Bebas Neue", cursive', fontSize: hasDesc ? 64 : 52, color: '#FCEE0A', lineHeight: 1 }}>
+                    <div style={{ fontFamily: '"Playfair Display", serif', fontSize: hasDesc ? 64 : 52, color: '#E8634A', lineHeight: 1 }}>
                         {m.value}
                     </div>
 
                     {hasDesc ? (
                         <>
-                            <div style={{ fontSize: 14, fontWeight: 700, color: '#F5F0E8', marginTop: 4, marginBottom: 8 }}>
+                            <div style={{ fontSize: 14, fontWeight: 700, color: '#F5F0CC', marginTop: 4, marginBottom: 8 }}>
                                 {m.label}
                             </div>
-                            <p style={{ fontSize: 12, color: 'rgba(245,240,232,0.55)', lineHeight: 1.6 }}>
+                            <p style={{ fontSize: 12, color: 'rgba(245,240,204,0.55)', lineHeight: 1.6 }}>
                                 {m.desc}
                             </p>
                         </>
                     ) : (
-                        <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'rgba(245,240,232,0.45)', marginTop: 6, letterSpacing: 1 }}>
+                        <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'rgba(245,240,204,0.45)', marginTop: 6, letterSpacing: 1 }}>
                             {m.label}
                         </div>
                     )}

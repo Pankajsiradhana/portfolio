@@ -1,32 +1,39 @@
-// ─── IMPORTS ────────────────────────────
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../common/ScrollReveal';
 import { projects } from '../../data/projects';
-
 import vybeImage from '../../assets/VYBE.png';
 
-// ─── TYPES / PROPS ───────────────────────
+// 4-pointed sparkle star
+function Sparkle({ size = 20, color = '#1E352F' }) {
+    return (
+        <span className="sparkle-star" style={{ width: size, height: size }}>
+            <svg viewBox="0 0 24 24" width={size} height={size}>
+                <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4Z" fill={color} />
+            </svg>
+        </span>
+    );
+}
 
-// ─── COMPONENT ───────────────────────────
 export default function VybeHeroCard() {
     const navigate = useNavigate();
     const vybe = projects.find((p) => p.id === 'vybe');
 
     return (
-        <section style={{ background: '#0A2E1A' }} className="section-padding">
+        <section style={{ background: '#F4F0EA' }} className="section-padding">
             <div className="container-main">
                 <ScrollReveal>
                     <div
-                        className="sr-item card-hover"
-                        style={{
-                            background: '#0A2E1A',
-                            border: '1px solid rgba(245,240,232,0.1)',
-                            borderRadius: 22,
-                            padding: 48,
-                            cursor: 'pointer',
-                        }}
+                        className="sr-item featured-card"
                         onClick={() => navigate('/project/vybe')}
                     >
+                        {/* Sparkle accents */}
+                        <div style={{ position: 'absolute', top: 20, right: 24 }}>
+                            <Sparkle size={24} color="#1E352F" />
+                        </div>
+                        <div style={{ position: 'absolute', bottom: 32, left: 24 }}>
+                            <Sparkle size={16} color="#D85A38" />
+                        </div>
+
                         <div
                             style={{
                                 display: 'grid',
@@ -41,13 +48,13 @@ export default function VybeHeroCard() {
                                 <div style={{ display: 'flex', gap: 6, marginBottom: 16, flexWrap: 'wrap' }}>
                                     <span
                                         style={{
-                                            background: '#FCEE0A',
-                                            color: '#0A2E1A',
+                                            background: '#1E352F',
+                                            color: '#F4F0EA',
                                             fontWeight: 700,
                                             fontSize: 9,
                                             textTransform: 'uppercase',
                                             letterSpacing: 1,
-                                            padding: '4px 12px',
+                                            padding: '5px 14px',
                                             borderRadius: 100,
                                         }}
                                     >
@@ -60,10 +67,10 @@ export default function VybeHeroCard() {
                                                 fontSize: 9,
                                                 textTransform: 'uppercase',
                                                 letterSpacing: 1,
-                                                padding: '4px 12px',
+                                                padding: '5px 14px',
                                                 borderRadius: 100,
-                                                border: '1px solid rgba(245,240,232,0.2)',
-                                                color: 'rgba(245,240,232,0.5)',
+                                                border: '1px solid rgba(30,53,47,0.25)',
+                                                color: 'rgba(30,53,47,0.7)',
                                             }}
                                         >
                                             {c}
@@ -73,9 +80,9 @@ export default function VybeHeroCard() {
 
                                 <h2
                                     style={{
-                                        fontFamily: '"Bebas Neue", cursive',
-                                        fontSize: 96,
-                                        color: '#F5F0E8',
+                                        fontFamily: '"Playfair Display", serif',
+                                        fontSize: 'clamp(64px, 10vw, 96px)',
+                                        color: '#1E352F',
                                         lineHeight: 0.85,
                                     }}
                                 >
@@ -86,8 +93,9 @@ export default function VybeHeroCard() {
                                         fontSize: 9,
                                         textTransform: 'uppercase',
                                         letterSpacing: 3,
-                                        color: '#FCEE0A',
+                                        color: '#1E352F',
                                         marginBottom: 16,
+                                        fontWeight: 600,
                                     }}
                                 >
                                     {vybe.subtitle}
@@ -95,7 +103,7 @@ export default function VybeHeroCard() {
                                 <p
                                     style={{
                                         fontSize: 14,
-                                        color: 'rgba(245,240,232,0.65)',
+                                        color: 'rgba(30,53,47,0.7)',
                                         lineHeight: 1.65,
                                         marginBottom: 20,
                                     }}
@@ -103,25 +111,21 @@ export default function VybeHeroCard() {
                                     {vybe.description}
                                 </p>
 
-                                {/* Image Section */}
+                                {/* Image */}
                                 <div
                                     style={{
-                                        borderRadius: 14,
-                                        height: 200,
-                                        background: '#0d2419',
+                                        borderRadius: 4,
+                                        height: 180,
+                                        background: '#1E352F',
                                         overflow: 'hidden',
                                         marginBottom: 20,
                                         position: 'relative',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
                                     }}
                                 >
-                                    <img 
-                                        src={vybeImage} 
-                                        alt="VYBE Project" 
-                                        style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }} 
+                                    <img
+                                        src={vybeImage}
+                                        alt="VYBE Project"
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }}
                                     />
                                     <div
                                         style={{
@@ -129,21 +133,13 @@ export default function VybeHeroCard() {
                                             bottom: 0,
                                             left: 0,
                                             right: 0,
-                                            background: 'linear-gradient(transparent, rgba(13,36,25,0.9))',
-                                            padding: '12px 0',
+                                            background: 'linear-gradient(transparent, rgba(30,53,47,0.9))',
+                                            padding: '12px 16px',
                                             display: 'flex',
-                                            justifyContent: 'center'
+                                            justifyContent: 'center',
                                         }}
                                     >
-                                        <span
-                                            style={{
-                                                fontSize: 8,
-                                                textTransform: 'uppercase',
-                                                color: 'rgba(252,238,10,0.7)',
-                                                fontWeight: 600,
-                                                letterSpacing: 1
-                                            }}
-                                        >
+                                        <span style={{ fontSize: 8, textTransform: 'uppercase', color: 'rgba(244,240,234,0.7)', fontWeight: 600, letterSpacing: 1 }}>
                                             AI Fashion Platform · Pre-Launch Product
                                         </span>
                                     </div>
@@ -155,8 +151,17 @@ export default function VybeHeroCard() {
                                         href={vybe.links.live}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="btn-primary"
-                                        style={{ fontSize: 11, padding: '8px 18px' }}
+                                        style={{
+                                            background: '#1E352F',
+                                            color: '#F4F0EA',
+                                            padding: '8px 18px',
+                                            borderRadius: 100,
+                                            fontSize: 11,
+                                            fontWeight: 700,
+                                            textDecoration: 'none',
+                                            fontFamily: '"Space Grotesk", sans-serif',
+                                            transition: 'all 0.2s ease',
+                                        }}
                                         onClick={(e) => e.stopPropagation()}
                                     >
                                         Live Site ↗
@@ -172,7 +177,17 @@ export default function VybeHeroCard() {
                                             href={b.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="btn-outlined"
+                                            style={{
+                                                padding: '8px 18px',
+                                                borderRadius: 100,
+                                                border: '1px solid rgba(30,53,47,0.2)',
+                                                color: 'rgba(30,53,47,0.6)',
+                                                fontSize: 11,
+                                                fontWeight: 700,
+                                                textDecoration: 'none',
+                                                fontFamily: '"Space Grotesk", sans-serif',
+                                                transition: 'all 0.2s ease',
+                                            }}
                                             onClick={(e) => e.stopPropagation()}
                                         >
                                             {b.label}
@@ -183,41 +198,19 @@ export default function VybeHeroCard() {
 
                             {/* Right Column */}
                             <div>
-                                <div style={{ marginBottom: 20 }}>
-                                    <p
-                                        style={{
-                                            fontSize: 9,
-                                            textTransform: 'uppercase',
-                                            letterSpacing: 2,
-                                            color: '#FCEE0A',
-                                            marginBottom: 10,
-                                        }}
-                                    >
+                                <div style={{ marginBottom: 24 }}>
+                                    <p style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: 2, color: '#1E352F', marginBottom: 10, fontWeight: 700 }}>
                                         THE PROBLEM
                                     </p>
-                                    <p
-                                        style={{
-                                            fontSize: 13,
-                                            color: 'rgba(245,240,232,0.65)',
-                                            lineHeight: 1.6,
-                                        }}
-                                    >
+                                    <p style={{ fontSize: 13, color: 'rgba(30,53,47,0.65)', lineHeight: 1.6 }}>
                                         $550B fashion returns problem. Nobody knows how clothes fit on their
                                         body. Every competitor solves half. VYBE solves all of it —
                                         brand-independent.
                                     </p>
                                 </div>
 
-                                <div style={{ marginTop: 20 }}>
-                                    <p
-                                        style={{
-                                            fontSize: 9,
-                                            textTransform: 'uppercase',
-                                            letterSpacing: 2,
-                                            color: '#FCEE0A',
-                                            marginBottom: 10,
-                                        }}
-                                    >
+                                <div style={{ marginTop: 24 }}>
+                                    <p style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: 2, color: '#1E352F', marginBottom: 10, fontWeight: 700 }}>
                                         MY ROLE — END TO END
                                     </p>
                                     {[
@@ -233,12 +226,14 @@ export default function VybeHeroCard() {
                                                 display: 'flex',
                                                 gap: 10,
                                                 fontSize: 12,
-                                                color: 'rgba(245,240,232,0.6)',
-                                                marginBottom: 6,
+                                                color: 'rgba(30,53,47,0.6)',
+                                                marginBottom: 8,
                                                 alignItems: 'flex-start',
                                             }}
                                         >
-                                            <span style={{ color: '#FCEE0A', fontSize: 8, marginTop: 4 }}>●</span>
+                                            <svg width="10" height="10" viewBox="0 0 24 24" style={{ marginTop: 3, flexShrink: 0 }}>
+                                                <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4Z" fill="#D85A38" />
+                                            </svg>
                                             <span>{item}</span>
                                         </div>
                                     ))}
@@ -248,27 +243,21 @@ export default function VybeHeroCard() {
                     </div>
                 </ScrollReveal>
             </div>
+
             {/* Responsive */}
             <style>{`
-            @media (max-width: 1024px) {
-                .vybe-grid { gap: 24px !important; }
-            }
-            @media (max-width: 768px) {
-                .vybe-grid { grid-template-columns: 1fr !important; }
-                .vybe-grid .sr-item.card-hover,
-                .sr-item.card-hover {
-                    padding: 28px !important;
+                .tag-desktop-vybe {
+                    display: inline-block;
                 }
-            }
-            @media (max-width: 480px) {
-                .vybe-grid .sr-item.card-hover,
-                .sr-item.card-hover {
-                    padding: 20px !important;
+                @media (max-width: 768px) {
+                    .vybe-grid { grid-template-columns: 1fr !important; }
+                    .featured-card { padding: 28px !important; }
+                    .tag-desktop-vybe { display: none !important; }
                 }
-            }
+                @media (max-width: 480px) {
+                    .featured-card { padding: 20px !important; }
+                }
             `}</style>
         </section>
     );
 }
-// ─── STYLES (if any) ─────────────────────
-// ─── EXPORT ──────────────────────────────

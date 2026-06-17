@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VYBE - My Wardrobe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#e5c444",
+                      "on-tertiary-container": "#dddcd9",
+                      "outline-variant": "#bec8c8",
+                      "on-tertiary-fixed-variant": "#464745",
+                      "tertiary-container": "#60615f",
+                      "secondary": "#705d00",
+                      "primary": "#005254",
+                      "inverse-on-surface": "#d2f8f8",
+                      "surface-container-low": "#d5fbfb",
+                      "surface-bright": "#e2ffff",
+                      "secondary-fixed": "#ffe171",
+                      "surface-dim": "#bbe1e1",
+                      "on-background": "#002020",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-variant": "#c4eaea",
+                      "tertiary-fixed-dim": "#c7c6c4",
+                      "on-surface": "#002020",
+                      "surface-tint": "#16696c",
+                      "surface-container-high": "#c9efef",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#3f4949",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#c4eaea",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed": "#e3e2e0",
+                      "on-primary-container": "#a0e9ec",
+                      "secondary-container": "#fcdb58",
+                      "primary-fixed": "#a6eff2",
+                      "background": "#e2ffff",
+                      "on-secondary-container": "#735f00",
+                      "primary-fixed-dim": "#8bd3d6",
+                      "on-primary-fixed": "#002021",
+                      "on-primary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#004f52",
+                      "tertiary": "#484947",
+                      "primary-container": "#1a6b6e",
+                      "on-error-container": "#93000a",
+                      "inverse-primary": "#8bd3d6",
+                      "on-tertiary-fixed": "#1a1c1a",
+                      "outline": "#6f7979",
+                      "surface-container": "#cff5f5",
+                      "inverse-surface": "#103636",
+                      "on-secondary-fixed": "#221b00",
+                      "on-secondary-fixed-variant": "#554600",
+                      "surface": "#e2ffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "48px",
+                      "stack-lg": "32px",
+                      "container-padding": "24px",
+                      "stack-md": "16px",
+                      "stack-sm": "8px",
+                      "gutter": "16px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "label-md": [
+                              "DM Sans"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "body-md": [
+                              "DM Sans"
+                      ],
+                      "label-sm": [
+                              "DM Sans"
+                      ],
+                      "body-lg": [
+                              "DM Sans"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg-mobile": [
+                              "Playfair Display"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #FAF9F6;
+        }
+        .soft-shadow {
+            box-shadow: 0 12px 32px rgba(26, 107, 110, 0.04);
+        }
+        .glass-panel {
+            background: rgba(250, 249, 246, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="h-screen w-full overflow-hidden text-on-surface bg-background">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<img alt="" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1Jw7nkjEYmElyHMHdlACdNMocYV-zMbxs4qsUkjcuhZAjovvfOFEpwMpAjPvWxCOCZ_CwBQn3isJ1liPhJW3vcfeJmrPEW4KqtMNY3Fwyh0y7A0qAOn--jV2dtDsOMurL_Yg-ovDF9d7dmmChRnudOPfL5CcjMAQqhkIX33HwX5v4oKr3fJ6f6H0lTPK7OX5mLXKGy_8z3FtlTbydtjTn8Z4z-VTOMqSgJjTwdkzvXJJRYCzly--niYR1zSZmRt1VTz2B3vznqPA"/>
+</div>
+<!-- Top App Bar (WEB) - Hidden on Mobile -->
+<header class="hidden md:flex justify-between items-center w-full px-container-padding bg-transparent w-full top-0 pt-stack-md absolute z-20">
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<h1 class="font-display-lg text-headline-lg tracking-widest text-primary dark:text-primary-fixed uppercase">VYBE</h1>
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</button>
+</header>
+<!-- Top App Bar (MOBILE) -->
+<header class="flex md:hidden justify-between items-center w-full px-container-padding bg-transparent w-full top-0 pt-stack-md absolute z-20">
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<h1 class="font-display-lg text-headline-lg-mobile tracking-widest text-primary dark:text-primary-fixed uppercase">VYBE</h1>
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</button>
+</header>
+<!-- Floating Selection Panel -->
+<main class="absolute bottom-0 left-0 w-full h-[65vh] md:w-[450px] md:h-screen md:right-0 md:left-auto md:top-0 z-10">
+<div class="glass-panel w-full h-full rounded-t-[1.5rem] md:rounded-none md:rounded-l-[1.5rem] flex flex-col pt-stack-lg border-t md:border-t-0 md:border-l border-primary/10 shadow-[0_-12px_32px_rgba(26,107,110,0.04)] md:shadow-[-12px_0_32px_rgba(26,107,110,0.04)] pb-32 md:pb-0">
+<!-- Handle for mobile -->
+<div class="w-12 h-1.5 bg-outline-variant/50 rounded-full mx-auto mb-stack-md md:hidden"></div>
+<div class="px-container-padding mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-primary mb-1">Wardrobe Curation</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Select pieces to refine your look.</p>
+</div>
+<!-- Categories -->
+<div class="w-full overflow-x-auto no-scrollbar px-container-padding mb-stack-lg">
+<div class="flex space-x-gutter min-w-max pb-2">
+<button class="px-4 py-2 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md">All</button>
+<button class="px-4 py-2 rounded-full bg-[#C2E8E8] text-primary font-label-md text-label-md hover:bg-primary-container/20 transition-colors">Tops</button>
+<button class="px-4 py-2 rounded-full bg-[#C2E8E8] text-primary font-label-md text-label-md hover:bg-primary-container/20 transition-colors">Bottoms</button>
+<button class="px-4 py-2 rounded-full bg-[#C2E8E8] text-primary font-label-md text-label-md hover:bg-primary-container/20 transition-colors">Outerwear</button>
+<button class="px-4 py-2 rounded-full bg-[#C2E8E8] text-primary font-label-md text-label-md hover:bg-primary-container/20 transition-colors">Shoes</button>
+</div>
+</div>
+<!-- Scrollable Grid -->
+<div class="flex-1 overflow-y-auto px-container-padding pb-stack-lg">
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden soft-shadow border border-primary/10 relative group cursor-pointer">
+<div class="absolute top-2 left-2 z-10 bg-[#D4B535] text-on-secondary px-2 py-1 rounded-full font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                            98% Match
+                        </div>
+<div class="aspect-[4/5] bg-surface-variant overflow-hidden">
+<img alt="A high fashion editorial shot of a luxurious cream-colored silk blouse resting softly against a minimalist background. The lighting is diffused and soft, highlighting the elegant drape and delicate texture of the fabric. The overall mood is sophisticated and calming, perfectly aligning with a premium, quiet luxury aesthetic." class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbtCzOL6zvuL3Mwl2H_Dzyf1czy-sM6XTC2ePbhdDwEDHncHARdOPb8bqnpZphSaXUGY0CFXspVZ_aaLNHtoHEblelik_PVES_rsS2ETtdhto-cf0ZHtYKJrOUlyJVpkvPC-7-mZya4em2f1B2AJOiM5KAOp7mw--b31MOdNjUQYTd-Cpjjx7pgprAlwDpEvXabphG4ZatELbHu05BFZHB9yYQrD5euzQdyk8Qkhs1KC15pq4Rv5UEfROp_1LJU_yDpbnoSFwR0H8"/>
+</div>
+<div class="p-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Celine</p>
+<p class="font-body-md text-body-md text-on-surface leading-tight mb-2">Draped Silk Blouse</p>
+<p class="font-label-md text-label-md text-primary">$890</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden soft-shadow border border-primary/10 relative group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-variant overflow-hidden">
+<img alt="A beautifully tailored pair of high-waisted wool trousers in a soft beige tone. The trousers are displayed in a clean, brightly lit setting with a soft, airy atmosphere. Subtle shadows accentuate the sharp tailoring and premium material, emphasizing a modern, minimalist wardrobe staple." class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF4xBKugFkIEydMU5fvDmieUL_dQEoiyoA2RrMQK8qNgJqcFgi68IxqEfy0OByvAla0-_M8VRxt5-sE6TFE7kldo5kusrBRM9jR9CRBCZ0WfnBNnDdmEijr8-fFLvv6S6DkbrU6IthLjDobI_2RRqELDuvQEqb-SbPc651SWKAhKNERVnUs9ZyMyMUtqW-u32Wds1SsW3DAmM9O9V5LV-G8ly-pkFeePg7GkAQE-2-KD-b8GVm5N5NniGwpphw9jBHz2VvWOC4Ypg"/>
+</div>
+<div class="p-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">The Row</p>
+<p class="font-body-md text-body-md text-on-surface leading-tight mb-2">Wool Trousers</p>
+<p class="font-label-md text-label-md text-primary">$1,250</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden soft-shadow border border-primary/10 relative group cursor-pointer">
+<div class="absolute top-2 left-2 z-10 bg-[#D4B535] text-on-secondary px-2 py-1 rounded-full font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                            92% Match
+                        </div>
+<div class="aspect-[4/5] bg-surface-variant overflow-hidden">
+<img alt="A pair of elegant, minimalist leather mules in a muted earth tone, resting on a smooth, pale stone surface. The lighting is soft and natural, creating gentle reflections on the premium leather. The composition is clean and editorial, focusing on the refined craftsmanship and subtle luxury of the design." class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmTceKnk-inAhp7WK5wiMHP47aT0Fv4pnZvUbSKVUYuqmozfFS3mf1VQFfwTt89_GCEYOp1KXTlNzHPM9mzYOLTFt3rz7olKz9xEr62zPatl9VEAvDAbu1qJDtk88u-4MYOgZc4p87VzPJbxgtOItkrmZY1ilpnRkwM1R4c5LfmAUdU-Lk_nFIeAyvjyLbXFqcr8NyS1ExvU_RVRFdxf2Um9AN4TP0e5HHyhpzd4Y0lVepRSMqUuUSIp3Bcomq3yq7vWZb8mkfLzo"/>
+</div>
+<div class="p-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Bottega Veneta</p>
+<p class="font-body-md text-body-md text-on-surface leading-tight mb-2">Leather Mules</p>
+<p class="font-label-md text-label-md text-primary">$720</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden soft-shadow border border-primary/10 relative group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-variant overflow-hidden">
+<img alt="A delicate gold chain necklace with a subtle, geometric pendant, presented on a soft, neutral-colored velvet display. The image is bright and airy, with a focus on the fine details of the jewelry. The aesthetic is understated elegance, capturing the essence of quiet, refined accessories." class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHqQPDBCzsKnzp56NJp6PaetPHG1TTyMAQwaTq1LNsVunfJswROxZkDjQ02afZ1VCb1OM7XJDgU8CgDjGZ7eGorDgO19CsWTG3lgmvc9pZONVqw8LBTT2o3HcyYfQO0qbSOJwOjEUP9ZZWoPdkwe1P86Hc8eWkXmUdpqlVWXS7kZ5YZsQqWLZKiuxH85OWdsvzrfqAsDD1dzmcQK_Hes93DoXra43aJY-XBYxrBxk265ByOWWAlumE0RZlK-0B23-n5hqJSRm2suA"/>
+</div>
+<div class="p-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Mejuri</p>
+<p class="font-body-md text-body-md text-on-surface leading-tight mb-2">Gold Chain</p>
+<p class="font-label-md text-label-md text-primary">$150</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Action Card -->
+<div class="mt-auto px-container-padding pb-container-padding md:pb-stack-lg bg-gradient-to-t from-surface-container-lowest/90 to-transparent pt-stack-lg relative z-20">
+<div class="bg-surface-container-lowest rounded-xl p-4 soft-shadow border border-primary/10 flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Selected Look</p>
+<p class="font-headline-md text-headline-md text-on-surface text-[18px] leading-tight">Draped Silk Blouse</p>
+<a class="font-label-md text-label-md text-outline hover:text-primary transition-colors inline-block mt-1" href="#">Shop Item ↗</a>
+</div>
+<button class="bg-[#1A6B6E] text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-opacity-90 transition-all shadow-md">
+                        Confirm Look
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (MOBILE) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-container-padding py-stack-sm pb-8 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md rounded-t-xl border-t border-primary/10 shadow-[0_-12px_32px_rgba(26,107,110,0.04)]">
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">view_in_ar</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full p-3 hover:text-primary transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">style</span>
+<span class="font-label-sm text-label-sm uppercase mt-1 hidden">My Wardrobe</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">auto_awesome</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">Matches</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline p-3 hover:text-primary transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-sm text-label-sm uppercase mt-1">Profile</span>
+</button>
+</nav>
+</body></html>

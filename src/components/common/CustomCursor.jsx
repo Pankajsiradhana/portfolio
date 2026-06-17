@@ -9,14 +9,13 @@ export default function CustomCursor() {
         setPosition({ x: e.clientX, y: e.clientY });
 
         // Add performance safeguard (optional, standard getComputedStyle isn't too expensive if limited to section)
-        // Check if cursor is over a light background (#F5F0E8 / rgb(245, 240, 232))
+        // Check if cursor is over a light background (#F5F0CC / rgb(245, 240, 232))
         const element = document.elementFromPoint(e.clientX, e.clientY);
         if (element) {
             const section = element.closest('section') || element.closest('[style*="background"]');
             if (section) {
                 const bg = window.getComputedStyle(section).backgroundColor;
-                // Some variation in rgb representation depending on browser, but #F5F0E8 translates closely to:
-                if (bg === 'rgb(245, 240, 232)' || bg === '#F5F0E8') {
+                if (bg === 'rgb(244, 240, 234)' || bg === '#F4F0EA') {
                     setIsLightBackground(true);
                     return;
                 }

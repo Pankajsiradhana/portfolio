@@ -1,73 +1,87 @@
-// ─── IMPORTS ────────────────────────────
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { projects } from '../../data/projects';
 
-// ─── TYPES / PROPS ───────────────────────
+// 4-pointed sparkle star
+function Sparkle({ size = 20, color = '#F9A825' }) {
+    return (
+        <span className="sparkle-star" style={{ width: size, height: size }}>
+            <svg viewBox="0 0 24 24" width={size} height={size}>
+                <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4Z" fill={color} />
+            </svg>
+        </span>
+    );
+}
 
-// ─── COMPONENT ───────────────────────────
 export default function ProjectAccordion() {
     const [openIndex, setOpenIndex] = useState(-1);
 
     const accordionProjects = projects.filter(p => p.id !== 'vybe');
 
-    const renderIcon = (id) => {
-        switch (id) {
-            case 'youtube-shorts':
-                return (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(252,238,10,0.6)" strokeWidth="1.5">
-                        <polygon points="10 8 16 12 10 16 10 8" />
-                        <rect x="2" y="4" width="20" height="16" rx="3" />
-                    </svg>
-                );
-            case 'saas-churn':
-                return (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(252,238,10,0.6)" strokeWidth="1.5">
-                        <polyline points="4 18 8 14 12 16 16 10 20 6" />
-                        <line x1="4" y1="20" x2="20" y2="20" />
-                        <line x1="4" y1="4" x2="4" y2="20" />
-                    </svg>
-                );
-            case 'ai-review':
-                return (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(252,238,10,0.6)" strokeWidth="1.5">
-                        <circle cx="8" cy="8" r="3" />
-                        <circle cx="16" cy="8" r="3" />
-                        <circle cx="12" cy="16" r="3" />
-                        <line x1="10.5" y1="9.5" x2="12" y2="13.5" />
-                        <line x1="13.5" y1="9.5" x2="12" y2="13.5" />
-                    </svg>
-                );
-            default: return null;
-        }
-    };
-
     return (
-        <section style={{ background: '#F5F0E8' }} className="section-padding">
+        <section style={{ background: '#F4F0EA' }} className="section-padding">
             <div className="container-main">
-                <div style={{ borderTop: '1px solid rgba(10,46,26,0.12)' }}>
+                {/* Timeline track with sparkle star nodes */}
+                <div style={{ position: 'relative' }}>
+                    {/* Vertical timeline line */}
+                    <div
+                        style={{
+                            position: 'absolute',
+                            left: 12,
+                            top: 0,
+                            bottom: 0,
+                            width: 2,
+                            background: 'rgba(30,53,47,0.1)',
+                        }}
+                    />
+
                     {accordionProjects.map((item, i) => (
                         <div
                             key={item.id}
                             className={`accordion-row ${openIndex === i ? 'expanded' : ''}`}
                             onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
+                            style={{
+                                borderBottom: '1px solid rgba(30,53,47,0.08)',
+                                paddingLeft: 48,
+                                position: 'relative',
+                            }}
                         >
+                            {/* Timeline sparkle star node */}
+                            <div
+                                style={{
+                                    position: 'absolute',
+                                    left: 0,
+                                    top: 32,
+                                    width: 26,
+                                    height: 26,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    background: '#F4F0EA',
+                                    zIndex: 2,
+                                }}
+                            >
+                                <Sparkle size={18} color={openIndex === i ? '#D85A38' : '#F9A825'} />
+                            </div>
+
                             <div
                                 style={{
                                     display: 'grid',
-                                    gridTemplateColumns: '100px 1fr auto',
+                                    gridTemplateColumns: '80px 1fr auto',
                                     alignItems: 'center',
                                     gap: 20,
                                 }}
                                 className="accordion-header"
                             >
-                                {/* Number */}
+                                {/* Year/Number */}
                                 <span
                                     style={{
                                         fontSize: 11,
                                         textTransform: 'uppercase',
                                         letterSpacing: 2,
-                                        color: 'rgba(10,46,26,0.35)',
+                                        color: 'rgba(30,53,47,0.35)',
+                                        fontFamily: '"Space Grotesk", sans-serif',
+                                        fontWeight: 600,
                                     }}
                                 >
                                     {item.num}
@@ -76,10 +90,10 @@ export default function ProjectAccordion() {
                                 {/* Title */}
                                 <span
                                     style={{
-                                        fontFamily: '"Syne", sans-serif',
-                                        fontWeight: 800,
-                                        fontSize: 'clamp(22px, 3vw, 36px)',
-                                        color: '#0A2E1A',
+                                        fontFamily: '"Playfair Display", serif',
+                                        fontWeight: 700,
+                                        fontSize: 'clamp(20px, 3vw, 32px)',
+                                        color: '#1E352F',
                                     }}
                                 >
                                     {item.title}
@@ -90,34 +104,21 @@ export default function ProjectAccordion() {
                                     {item.tags?.map((t) => (
                                         <span
                                             key={t}
+                                            className="tag-desktop"
                                             style={{
                                                 fontSize: 9,
                                                 textTransform: 'uppercase',
-                                                padding: '3px 10px',
+                                                padding: '4px 12px',
                                                 borderRadius: 100,
-                                                background: 'rgba(10,46,26,0.07)',
-                                                color: 'rgba(10,46,26,0.5)',
+                                                background: 'rgba(30,53,47,0.06)',
+                                                color: 'rgba(30,53,47,0.5)',
+                                                fontFamily: '"Space Grotesk", sans-serif',
+                                                fontWeight: 600,
                                             }}
-                                            className="hidden md:inline-block"
                                         >
                                             {t}
                                         </span>
                                     ))}
-                                    <div
-                                        className="hidden md:flex"
-                                        style={{
-                                            width: 64,
-                                            height: 38,
-                                            borderRadius: 10,
-                                            overflow: 'hidden',
-                                            background: '#0A2E1A',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                        }}
-                                    >
-                                        {renderIcon(item.id)}
-                                    </div>
                                     <div className="accordion-icon">+</div>
                                 </div>
                             </div>
@@ -128,10 +129,10 @@ export default function ProjectAccordion() {
                                     <p
                                         style={{
                                             fontSize: 14,
-                                            color: 'rgba(10,46,26,0.65)',
+                                            color: 'rgba(30,53,47,0.6)',
                                             lineHeight: 1.65,
                                             maxWidth: 600,
-                                            marginBottom: 14,
+                                            marginBottom: 16,
                                         }}
                                     >
                                         {item.description}
@@ -149,18 +150,28 @@ export default function ProjectAccordion() {
                     ))}
                 </div>
             </div>
+
             {/* Responsive */}
             <style>{`
-            @media (max-width: 768px) {
-                .accordion-header {
-                    grid-template-columns: 60px 1fr auto !important;
-                    gap: 12px !important;
+                .tag-desktop {
+                    display: inline-block;
                 }
-            }
+                @media (max-width: 768px) {
+                    .tag-desktop {
+                        display: none !important;
+                    }
+                    .accordion-header {
+                        grid-template-columns: 50px 1fr auto !important;
+                        gap: 12px !important;
+                    }
+                }
+                @media (max-width: 480px) {
+                    .accordion-header {
+                        grid-template-columns: 40px 1fr auto !important;
+                        gap: 8px !important;
+                    }
+                }
             `}</style>
         </section>
     );
 }
-
-// ─── STYLES (if any) ─────────────────────
-// ─── EXPORT ──────────────────────────────

@@ -1,18 +1,99 @@
-/* ── Pulsing Dot ── */
+/* ═══════════════════════════════════════════
+   ANIMATIONS — RETRO-BRUTALIST PORTFOLIO V2
+   ═══════════════════════════════════════════ */
+
+/* ─── SPARKLE TWINKLE ───── */
+@keyframes twinkle {
+    0% { transform: rotate(0deg) scale(1); opacity: 1; }
+    25% { transform: rotate(90deg) scale(0.85); opacity: 0.7; }
+    50% { transform: rotate(180deg) scale(1); opacity: 1; }
+    75% { transform: rotate(270deg) scale(0.85); opacity: 0.7; }
+    100% { transform: rotate(360deg) scale(1); opacity: 1; }
+}
+
+/* ─── PULSE DOT ─────────── */
 @keyframes pulse-dot {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
 }
 
 .pulse-dot {
-    animation: pulse-dot 2s infinite;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ─── FLOAT GENTLE ──────── */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* ─── SLIDE IN FROM RIGHT ── */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* ─── FADE UP ────────────── */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ─── PARALLAX HELPERS ───── */
+.parallax-slow {
+    will-change: transform;
+    transition: transform 0.1s linear;
+}
+
+.parallax-medium {
+    will-change: transform;
+    transition: transform 0.1s linear;
+}
+
+/* ─── HOVER TRANSITIONS ──── */
+.hover-lift {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hover-lift:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 rgba(15, 15, 15, 0.12);
+}
+
+.hover-invert {
+    transition: all 0.25s ease;
+}
+
+.hover-invert:hover {
+    filter: invert(1);
+}
+
+/* ─── SCROLL PROGRESS BAR ── */
+@keyframes scrollProgress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* ─── MARQUEE SCROLL ────── */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-scroll {
+    animation: marquee 30s linear infinite;
 }

@@ -1,7 +1,7 @@
 // ─── IMPORTS ────────────────────────────
 
 // ─── COMPONENT ───────────────────────────
-export default function ProjectHero({ height = 420, background = '#183324', children, containerStyle = {} }) {
+export default function ProjectHero({ height = 420, background = '#085255', children, containerStyle = {} }) {
     return (
         <div
             className="sr-item"
