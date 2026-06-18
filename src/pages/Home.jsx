@@ -133,7 +133,7 @@ export default function Home() {
                     {/* Subtext Banner & Social Tags */}
                     <div className="v2-hero-bottom-row">
                         <div className="v2-subtext-banner">
-                            <p>I think in systems, ship in sprints, and obsess over the why behind every product decision.</p>
+                            <p>I combine data, user insights, and execution to build products people love.</p>
                         </div>
                         <div className="v2-hero-social">
                             <a href="https://linkedin.com/in/pankaj-siradhana" target="_blank" rel="noopener noreferrer">LI: /pankaj-siradhana</a>
