@@ -224,7 +224,7 @@ export default function Home() {
                                 </div>
 
                                 <div className="vybe-actions" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: 'auto' }}>
-                                    <button className="v2-pill-btn dark hover-shift" style={{ background: '#0F2018', color: '#F9A825' }} onClick={() => window.open('https://vybe.com', '_blank')}>
+                                    <button className="v2-pill-btn dark hover-shift" style={{ background: '#0F2018', color: '#F9A825' }} onClick={() => window.open('https://vybe-flame.vercel.app/', '_blank')}>
                                         Live Site ↗
                                     </button>
                                     <button className="v2-pill-btn dark-outline hover-shift" onClick={() => openPanel('VYBE', <Vybe />)}>
@@ -343,11 +343,11 @@ export default function Home() {
                                 <span>Email</span>
                                 <span className="arrow">→</span>
                             </a>
-                            <a href="https://linkedin.com/in/pankaj-siradhana" target="_blank" rel="noopener noreferrer" className="v2-contact-row hover-invert">
+                            <a href="www.linkedin.com/in/pankaj-siradhana-613a2a292" target="_blank" rel="noopener noreferrer" className="v2-contact-row hover-invert">
                                 <span>LinkedIn</span>
                                 <span className="arrow">→</span>
                             </a>
-                            <a href="#" className="v2-contact-row hover-invert">
+                            <a href="https://www.instagram.com/pankajsiradhana__22" className="v2-contact-row hover-invert">
                                 <span>Instagram</span>
                                 <span className="arrow">→</span>
                             </a>
