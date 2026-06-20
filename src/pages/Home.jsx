@@ -343,11 +343,11 @@ export default function Home() {
                                 <span>Email</span>
                                 <span className="arrow">→</span>
                             </a>
-                            <a href="www.linkedin.com/in/pankaj-siradhana-613a2a292" target="_blank" rel="noopener noreferrer" className="v2-contact-row hover-invert">
+                            <a href="https://www.linkedin.com/in/pankaj-siradhana-613a2a292" target="_blank" rel="noopener noreferrer" className="v2-contact-row hover-invert">
                                 <span>LinkedIn</span>
                                 <span className="arrow">→</span>
                             </a>
-                            <a href="https://www.instagram.com/pankajsiradhana__22" className="v2-contact-row hover-invert">
+                            <a href="https://www.instagram.com/pankajsiradhana__22" target="_blank" rel="noopener noreferrer" className="v2-contact-row hover-invert">
                                 <span>Instagram</span>
                                 <span className="arrow">→</span>
                             </a>
