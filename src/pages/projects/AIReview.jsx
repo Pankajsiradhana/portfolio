@@ -138,7 +138,7 @@ export default function AIReview() {
                                     Case Study ↗
                                 </a>
                                 <a 
-                                    href="https://docs.google.com/document/d/1rjaWmWN1aFxuzVe95lfhRnTe1T68n91j/edit?usp=sharing&ouid=101428883712660753917&rtpof=true&sd=true" 
+                                    href="https://docs.google.com/presentation/d/1x0trucIl589Bd0OR67i3tAWrsPFSnJwv/edit?usp=drive_link&ouid=101428883712660753917&rtpof=true&sd=true" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                     className="btn-outlined-dark"
