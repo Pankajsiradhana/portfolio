@@ -127,14 +127,23 @@ export default function AIReview() {
                 <div className="container-main">
                     <ScrollReveal>
                         <div className="sr-item" style={{ marginBottom: 60 }}>
-                            <div style={{ position: 'relative', display: 'inline-block' }}>
-                                <a
-                                    href={aiLinks.caseStudy}
-                                    style={{ opacity: 0.4, cursor: 'not-allowed', pointerEvents: 'none' }}
+                            <div style={{ position: 'relative', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                                
+                                <a 
+                                    href="https://docs.google.com/document/d/1rjaWmWN1aFxuzVe95lfhRnTe1T68n91j/edit?usp=sharing&ouid=101428883712660753917&rtpof=true&sd=true" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
                                     className="btn-outlined-dark"
-                                    title="Coming Soon"
                                 >
                                     Case Study ↗
+                                </a>
+                                <a 
+                                    href="https://docs.google.com/document/d/1rjaWmWN1aFxuzVe95lfhRnTe1T68n91j/edit?usp=sharing&ouid=101428883712660753917&rtpof=true&sd=true" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="btn-outlined-dark"
+                                >
+                                    Presentation (PPT) ↗
                                 </a>
                             </div>
                         </div>
